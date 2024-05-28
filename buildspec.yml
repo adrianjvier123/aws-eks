@@ -14,6 +14,12 @@ phases:
       - docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${AWS_ECR_REPOSITORY_NAME}:latest .
       - echo Pushing Docker image to ECR...
       - docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${AWS_ECR_REPOSITORY_NAME}:latest
+  post_build:
+    commands:
+      # Descargar el archivo deployment.yml desde el repositorio raíz
+      - aws s3 cp s3://tfstate-adrian-jimenez/path/deployment.yml deployment.yml
+      # Aplicar el archivo deployment.yml en el clúster de EKS
+      - kubectl apply -f deployment.yml
 
 artifacts:
   files: []
