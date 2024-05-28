@@ -32,6 +32,7 @@ phases:
       - echo Verifying kubeconfig...
       - cat $HOME/.kube/config
       - kubectl config current-context
+      - aws sts get-caller-identity
       - echo Applying deployment.yml to EKS cluster...
       - kubectl apply -f deployment.yml
 
