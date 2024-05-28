@@ -10,7 +10,6 @@ phases:
       - echo Building Docker image...
       - docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${AWS_ECR_REPOSITORY_NAME}:latest .
       - echo Pushing Docker image to ECR...
-      - $(aws ecr get-login --no-include-email --region ${AWS_REGION})
       - docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${AWS_ECR_REPOSITORY_NAME}:latest
 
 artifacts:
