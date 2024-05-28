@@ -5,6 +5,9 @@ phases:
     commands:
       - echo Installing dependencies...
       - pip install -r requirements.txt
+      # Obtener la contraseña de acceso para ECR y iniciar sesión en Docker
+      - LOGIN_PASSWORD=$(aws ecr get-login-password --region $AWS_REGION)
+      - echo "$LOGIN_PASSWORD" | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
   build:
     commands:
       - echo Building Docker image...
