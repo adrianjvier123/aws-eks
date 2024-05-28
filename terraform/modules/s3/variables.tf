@@ -1,0 +1,1 @@
+variable "bucket_wp_name" {}

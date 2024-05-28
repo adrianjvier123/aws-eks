@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpcserver
+  namespace: grpcserver
+spec:
+  selector:
+    matchLabels:
+      app: grpcserver
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: grpcserver
+    spec:
+      containers:
+      - name: grpc-demo
+        image: 590183906787.dkr.ecr.us-east-1.amazonaws.com/python-app-repo:latest
+        imagePullPolicy: Always
+        ports:
+        - name: grpc-api
+          containerPort: 9000
+        env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpcserver
+  namespace: grpcserver
+spec:
+  # bypass kube-proxy
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 9000
+  selector:
+    app: grpcserver
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  #  alb.ingress.kubernetes.io/ssl-redirect: "443"
+    alb.ingress.kubernetes.io/backend-protocol-version: "GRPC"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    #alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:590183906787:certificate/a0722acb-791d-4260-84a2-e9a3f201546f
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    external-dns.alpha.kubernetes.io/hostname: "adrian.jimenez.m.com"
+  labels:
+    app: grpcserver
+    environment: dev
+  name: grpcserver
+  namespace: grpcserver
+spec:
+  ingressClassName: alb
+  rules:
+  - host: adrian.jimenez.m.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: grpcserver
+            port:
+              number: 9000
+        path: /*
+        pathType: Prefix

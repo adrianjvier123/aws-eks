@@ -1,0 +1,12 @@
+region="us-east-1"
+project_name="adn" #adrian
+vpc_cidr="10.0.0.0/16"
+public_subnet_az1_cidr="10.0.0.0/24"
+public_subnet_az2_cidr="10.0.1.0/24"
+private_app_subnet_az1_cidr="10.0.2.0/24"
+private_app_subnet_az2_cidr="10.0.3.0/24"
+private_data_subnet_az1_cidr="10.0.4.0/24"
+private_data_subnet_az2_cidr="10.0.5.0/24"
+ami="ami-0b0dcb5067f052a63"
+instance_type="t2.micro"
+bucket_wp_name="s3-tfstate-adrian-jimenez"
