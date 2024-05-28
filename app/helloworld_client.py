@@ -1,6 +1,3 @@
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: MIT-0
-
 import grpc
 import helloworld_pb2_grpc as pb2_grpc
 import helloworld_pb2 as pb2
