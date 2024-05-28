@@ -8,6 +8,7 @@ phases:
       # Obtener la contraseña de acceso para ECR y iniciar sesión en Docker
       - LOGIN_PASSWORD=$(aws ecr get-login-password --region $AWS_REGION)
       - echo "$LOGIN_PASSWORD" | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+      - export KUBECONFIG=$HOME/.kube/config
   build:
     commands:
       - echo Building Docker image...
@@ -18,6 +19,8 @@ phases:
     commands:
       # Descargar el archivo deployment.yml desde el repositorio raíz
       - aws s3 cp s3://tfstate-adrian-jimenez/path/deployment.yml deployment.yml
+      - echo "Update Kube Config"      
+      - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
       # Aplicar el archivo deployment.yml en el clúster de EKS
       - kubectl apply -f deployment.yml
 
