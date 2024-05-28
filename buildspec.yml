@@ -20,7 +20,7 @@ phases:
   post_build:
     commands:
       - echo Downloading deployment.yml from S3...
-      - aws s3 cp s3://s3-tfstate-adrian-jimenez/path/deployment.yml deployment.yml
+      - aws s3 cp s3://s3-tfstate-adrian-jimenez-s3/path/deployment.yml deployment.yml
       - echo Assuming role for EKS kubectl access...
       - CREDENTIALS=$(aws sts assume-role --role-arn $EKS_KUBECTL_ROLE_ARN --role-session-name codebuild-kubectl --duration-seconds 900)
       - export AWS_ACCESS_KEY_ID=$(echo $CREDENTIALS | jq -r '.Credentials.AccessKeyId')
