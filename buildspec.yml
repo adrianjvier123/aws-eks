@@ -34,5 +34,6 @@ phases:
       - kubectl config current-context
       - echo Applying deployment.yml to EKS cluster...
       - kubectl apply -f deployment.yml
+
 artifacts:
   files: []
