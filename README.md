@@ -9,8 +9,9 @@ AWS Elastic Container Registry (ECR) se utilizó para almacenar y versionar las 
 1. Realiza un gitclone del repositorio.
 2. Modifica el Main.tf de la carpeta root, y las variables que quieras personalizar.
 3. Ejecuta el comando  {% filename %}terraform init{% endfilename %} "terraform init".
-4. Ejecuta el comando "terrafrom plan", .
-5. ejecuta el commanto "terraform apply --auto-aprove.
+   $ terraform init
+5. Ejecuta el comando "terrafrom plan", .
+6. ejecuta el commanto "terraform apply --auto-aprove.
    **Nota**:  es posible que en la primera ejecucion salga un error en una policy, se recomienda en la primera ejecucion comentar el primer statment de esa policys, esto ocurre por una dependencia del rol.
 7. Si ocurrio el error y ya se comento y se desplego, realiza un segundo despliegue con el fragmento del statement sin comentar.
 
