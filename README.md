@@ -17,9 +17,12 @@ AWS Elastic Container Registry (ECR) se utilizó para almacenar y versionar las 
 7. Si ocurrio el error y ya se comento y se desplego, realiza un segundo despliegue con el fragmento del statement sin comentar.
 
 ## CI/CD
+
+### Pasos para ejecutar el build
 1. Una vez desplegada la infra, dado que no hay cambios por realizar en el codigo fuente de github, es necesario ejecutar el codebuild. Una vez realizado el build debera ejecutar los stages, compilar y desplegar la imagen en en el ecr y en el eks.
 2. Los difenrentes stages o pasos ejecutados por CodeBuild se encuentran en el archivo buildspec.yml.
 
+### Arquitectura y funcionamiento del CI/CD
 ![Arquitectura CICD](/terraform/CICDArquitectura.png)
 
 Se implementaron diversos servicios y herramientas para el flujo CI/CD, destacando GitHub, AWS CodeBuild, AWS ECR, S3 y AWS EKS. GitHub se utilizó como la herramienta principal para la gestión del código fuente de los microservicios, proporcionando un control de versiones robusto y facilitando la colaboración entre desarrolladores.
