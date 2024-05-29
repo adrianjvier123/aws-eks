@@ -1,4 +1,4 @@
-
+# Si bien, se creo un alb por tf, la AMI usada para el eks contiene la instalado el alb ingress controller, por lo que al final como alternativa se puede crear el alb desde el ingress.yml
 resource "aws_lb_target_group" "alb_tg_app_eks" {
   name     = "alb-tg-app-eks"
   port     = 80
