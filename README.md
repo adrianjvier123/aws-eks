@@ -41,5 +41,7 @@ Una vez que el ALB recibe una solicitud, este redirige el tráfico al Target Gro
 Al llegar a un nodo de EKS, el Ingress Controller, específicamente el ALB Ingress Controller en este caso, gestiona la ruta del tráfico basado en la configuración definida en el archivo ingress.yml. El Ingress Controller trabaja en conjunto con los recursos de Kubernetes para determinar cómo redirigir el tráfico a los servicios apropiados dentro del clúster.
 El Ingress, junto con el Service de Kubernetes, asegura que las solicitudes sean finalmente dirigidas a los pods que ejecutan los microservicios. El Service actúa como un punto de acceso estable dentro del clúster, manteniendo un registro de los pods asociados y balanceando la carga entre ellos, garantizando que las solicitudes del usuario sean manejadas eficientemente y proporcionando alta disponibilidad para los microservicios.
 
-## App Python
-Para la construccion de la app se tomo como guia y ejemplo documentacion encontrada en aws y GRPC.
+### App Python
+En el entorno de Amazon Elastic Kubernetes Service (EKS), los dos microservicios desarrollados en Python utilizan gRPC para comunicarse entre sí, implementando un patrón cliente-servidor. El microservicio servidor expone diversos métodos a través de una interfaz definida en un archivo .proto, que describe las operaciones disponibles y los tipos de datos que se intercambian. Este servidor escucha en un puerto específico para recibir solicitudes gRPC.
+
+*Nota:* Para la construccion de la app se tomo como guia y ejemplo documentacion encontrada en foros y portales oficiales de AWS y GRPC.
