@@ -1,18 +1,18 @@
 data "aws_caller_identity" "current" {}
-
+#desomentar lineas 9-15 depues de la primera ejecucion
 resource "aws_iam_role" "codebuild_role" {
   name = "codebuild-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
-      {
-        Effect = "Allow",
-        Principal = {
-          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/codebuild-role"
-        },
-        Action = "sts:AssumeRole"
-      },
+    #   { 
+    #     Effect = "Allow",
+    #     Principal = {
+    #       AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/codebuild-role"
+    #     },
+    #     Action = "sts:AssumeRole"
+    #   },
       {
         Effect = "Allow",
         Principal = {
