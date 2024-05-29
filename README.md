@@ -1,6 +1,6 @@
 # Arquitectura 
 <span>https://github.com/adrianjvier123/aws-eks/terraform/Arquitectura.png</span
-
+![Descripción de la imagen](/terraform/Arquitectura.png)
 ## Guia de despliegue
 
 1. Realiza un gitclone del repositorio.
