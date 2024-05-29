@@ -1,5 +1,4 @@
 # Arquitectura 
-<span>https://github.com/adrianjvier123/aws-eks/terraform/Arquitectura.png</span
 ![Arquitectura diseñada para el despliegue de microservicios en EKS](/terraform/Arquitectura.png)
 
 ## Guia de despliegue
