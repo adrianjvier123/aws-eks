@@ -1,6 +1,7 @@
 # Arquitectura 
-[Arquitectura diseñada para el despliegue de microservicios en EKS](/terraform/Arquitectura.png)
-La arquitectura diseñada está enfocada en cumplir con el ciclo de vida DevOps y proporcionar una solución eficiente para el uso de microservicios en Amazon Elastic Kubernetes Service (EKS). Esta arquitectura aprovecha varias herramientas y servicios de AWS para asegurar un flujo de trabajo continuo y automatizado, desde el desarrollo hasta el despliegue en producción.
+![Arquitectura diseñada para el despliegue de microservicios en EKS](/terraform/Arquitectura.png)
+
+<p style="text-align: justify; La arquitectura diseñada está enfocada en cumplir con el ciclo de vida DevOps y proporcionar una solución eficiente para el uso de microservicios en Amazon Elastic Kubernetes Service (EKS). Esta arquitectura aprovecha varias herramientas y servicios de AWS para asegurar un flujo de trabajo continuo y automatizado, desde el desarrollo hasta el despliegue en producción. </p>
 
 AWS Elastic Container Registry (ECR) se utilizó para almacenar y versionar las imágenes Docker construidas en AWS CodeBuild. La implementación de CodeBuild facilita el flujo CI/CD, permitiendo la compilación automatizada de imágenes Docker y su despliegue en ECR y EKS. Esta integración no solo asegura la alta disponibilidad y escalabilidad de los servicios desplegados, sino que también aprovecha las ventajas del enfoque serverless, reduciendo la necesidad de gestionar infraestructura subyacente y permitiendo a los desarrolladores centrarse en la entrega de valor a través de sus aplicaciones.
 
