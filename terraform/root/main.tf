@@ -8,16 +8,18 @@ provider "kubernetes" {
   // Configura tu proveedor de Kubernetes aquí
 }
 
-terraform {
+# Descomentar lineas 13 - 21 una vez realizada primera ejecucion
 
-  backend "s3" {
-    bucket         = "s3-tfstate-adrian-jimenez-s3"
-    key            = "terraform.tfstate"  # Nombre del archivo de estado en el bucket
-    region         = "us-east-1"  # Reemplaza con tu región AWS
-   # dynamodb_table = "tf_state_lock"  # Opcional: Nombre de la tabla DynamoDB para el bloqueo del estado
-  }
-  #experiments = [module_variable_optional_attrs]
-}
+# terraform {
+#   backend "s3" {
+#     bucket         = "s3-tfstate-adrian-jimenez-s3" 
+#     key            = "terraform.tfstate"  # Nombre del archivo de estado en el bucket
+#     region         = "us-east-1"  # Reemplaza con tu región AWS
+#    # dynamodb_table = "tf_state_lock"  # Opcional: Nombre de la tabla DynamoDB para el bloqueo del estado
+#   }
+#   #experiments = [module_variable_optional_attrs]
+# }
+
 
 
 module "vpc" {
